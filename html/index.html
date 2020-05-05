@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bandwidth Dashboard</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body onload="newImages()">
+
+<script type="text/javascript" language="JavaScript">
+
+function newImages() {
+
+        var myRequest = new XMLHttpRequest();
+
+        myRequest.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                        updateImage();
+                }
+        };
+        myRequest.open("GET", "cgi-bin/vnstati-update.sh");
+        myRequest.send();
+
+}
+
+function updateImage()
+{
+    img = document.getElementById("summary");
+        img.src="vnstat_img/vnstat-summary.png?rand_number=" + Math.random();
+
+        img = document.getElementById("hourly");
+        img.src="vnstat_img/vnstat-hourly.png?rand_number=" + Math.random();
+
+        img = document.getElementById("monthly");
+        img.src="vnstat_img/vnstat-monthly.png?rand_number=" + Math.random();
+
+        img = document.getElementById("daily");
+        img.src="vnstat_img/vnstat-daily.png?rand_number=" + Math.random();
+}
+
+</script>
+
+<h2>Bandwidth Dashboard</h2>
+<h3>Overview</h3>
+<img id="summary" src="./global/page-loading.gif">
+
+<h3>24 hour</h3>
+<img id="hourly" src="./global/page-loading.gif">
+
+<h3>Monthly</h3>
+<img id="monthly" src="./global/page-loading.gif">
+
+<h4>Daily</h4>
+<img id="daily" src="./global/page-loading.gif">
+</body>
+</html>
