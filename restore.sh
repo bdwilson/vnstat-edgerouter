@@ -9,6 +9,7 @@ if [ ! -x /usr/bin/vnstat ] && [ ! -x /usr/bin/vnstati ]; then
 	echo 'You need to install vnstat and vnstati on your device. Please see README.md'
 else 
 	cp /config/vnstat/vnstat.conf /etc
+	chmod 755 /etc/vnstat.conf
 	if [ ! -x /etc/init.d/vnstat ]; then
 		cp /config/vnstat/vnstat.init /etc/init.d/vnstat
 		service vnstat restart
@@ -16,16 +17,21 @@ else
 	if [ ! -d /var/log/vnstat ]; then
 		mkdir -p /var/log/vnstat
 	fi 
+	chmod 755 /var/log/vnstat
 	if [ ! -d /var/log/stat ]; then
 		mkdir -p /var/log/stat
 		cp -Rp /config/vnstat/html/* /var/log/stat
 	fi 
+	chmod -R 755 /var/log/stat
+	chmod 775 /var/log/stat/vnstat_img
+	chgrp www-data /var/log/stat/vnstat_img
 	if [ ! -L /var/www/htdocs/media/stat ]; then
 		ln -s /var/log/stat /var/www/htdocs/media
 	fi
 	if [ -f /config/vnstat/eth0 ]; then
 		echo 'Restoring backup of vnstat data file'
 		cp -Rp /config/vnstat/eth0 /var/log/vnstat
+		chmod 755 /var/log/vnstat/eth0
 		service vnstat restart
 	fi
 	if [ ! -L /var/www/htdocs/media/stat ]; then
