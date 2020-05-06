@@ -33,7 +33,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	if [ ${RC} == 0 ] ; then
     	echo 'Backing up /etc/lighttpd/lighttpd.conf to /etc/lighttpd/lighttpd.conf.vnstat'
         cp /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.vnstat
-		if [ -f /etc/lighttpd/lighttpd.conf.bak ]; 
+		if [ -f /etc/lighttpd/lighttpd.conf.bak ]; then
 			echo 'Found previous version of lighttpd.conf, restoring it.'
         	cp /etc/lighttpd/lighttpd.conf.bak /etc/lighttpd/lighttpd.conf
 		else 
