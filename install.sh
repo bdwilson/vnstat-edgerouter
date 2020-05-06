@@ -31,6 +31,12 @@ if [ -d /config/vnstat ]; then
 		else
 			/config/vnstat/restore.sh
 		fi
+	else
+		 echo 'Would you like to uninstall? (y/n)'
+         read answer
+         if [ "$answer" != "${answer#[Yy]}" ] ;then
+			./uninstall.sh
+		 fi
 	fi
 else
 	echo 'Would you like to install? (y/n)'
