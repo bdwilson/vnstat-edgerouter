@@ -8,7 +8,7 @@ vnstat GUI for Ubiquiti Edgerouter
 3. <code> curl -fsSLo /tmp/vnstat-edgerouter.run https://github.com/bdwilson/vnstat-edgerouter/raw/master/vnstat-edgerouger.run && sudo sh /tmp/vnstat-edgerouter.run </code>
 4. If you don't want to run the above command, get the repo local to your device, perhaps in /tmp/vnstat, and run <code> sudo ./install.sh </code>
 
-You should now be able to access http://your.router.ip/stat (it will take awhile to get stats unless you're upgrading). 
+You should now be able to access http://your.router.ip/media/stat/ (it will take awhile to get stats unless you're upgrading). 
 
 ## Notes
 
