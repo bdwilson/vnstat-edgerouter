@@ -8,6 +8,8 @@ fi
 echo 'Are you sure you would like to uninstall? (y/n)'
 read answer
 if [ "$answer" != "${answer#[Yy]}" ]; then
+	echo 'Backing up vnstat data files to /config/vnstat'
+	/config/scripts/backup.sh
 	if [ -f /etc/vnstat.conf ]; then 
 		cp -Rp /etc/vnstat.conf /config/vnstat
 	fi 
