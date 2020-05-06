@@ -7,7 +7,7 @@ fi
 
 echo 'Are you sure you would like to uninstall? (y/n)'
 read answer
-if [ "$answer" != "${answer#[Yy]}" ] ;then
+if [ "$answer" != "${answer#[Yy]}" ]; then
 	if [ -f /etc/vnstat.conf ]; then 
 		cp -Rp /etc/vnstat.conf /config/vnstat
 	fi 
@@ -30,7 +30,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	fi
 	OUT=`grep vnstat /etc/lighttpd/lighttpd.conf`
 	RC=$?
-	if [ ${RC} == 0 ] ; then
+	if [ ${RC} == 0 ]; then
     	echo 'Backing up /etc/lighttpd/lighttpd.conf to /etc/lighttpd/lighttpd.conf.vnstat'
         cp /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.vnstat
 		if [ -f /etc/lighttpd/lighttpd.conf.bak ]; then
@@ -46,7 +46,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	fi
 	OUT=`grep "/config/vnstat/backup.sh" /var/spool/cron/crontabs/root`
 	RC=$?
-	if [ ${RC} == 0 ] ; then
+	if [ ${RC} == 0 ]; then
         echo 'Removing nightly cronjob to copy data files from RAM to disk'
 		cp /var/spool/cron/crontabs/root /tmp/root.cron
 		grep -v '/config/vnstat' /tmp/root.cron > /var/spool/cron/crontabs/root
