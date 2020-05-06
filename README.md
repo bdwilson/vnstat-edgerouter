@@ -14,6 +14,8 @@ You should now be able to access http://your.router.ip/media/stat/ (it will take
 
 This has only been tested on EdgeOS 1.x <b>NOT</b> 2.x. If you test it on 2.x, please let me know. It should be easy enough to uninstall if things don't work.
 
+If your home internet quota resets on a different date, edit /etc/vnstat.conf and update <code> MonthRotate 19</code> and restart vnstat. 
+
 ## Uninstall
 
 SSH to your device and run <code> sudo /config/vnstat/uninstall.sh </code>
