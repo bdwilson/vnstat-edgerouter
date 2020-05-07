@@ -1,5 +1,5 @@
 # vnstat-edgerouter
-vnstat GUI for Ubiquiti Edgerouter / EdgeOS
+vnstat GUI for Ubiquiti Edgerouter / EdgeOS Bandwidth Monitor
 
 ## Requirements
 
