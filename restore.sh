@@ -65,4 +65,9 @@ else
 		echo 'Adding nightly cronjob to copy data files from RAM to disk'
 		echo '23 11 * * * /config/vnstat/backup.sh' >> /var/spool/cron/crontabs/root 
 	fi
+
+    # create initial vnstat file if it doesn't exist.
+	if [ ! -f /var/log/vnstat/eth0 ]; then
+		vnstat -u -i eth0
+	fi
 fi
